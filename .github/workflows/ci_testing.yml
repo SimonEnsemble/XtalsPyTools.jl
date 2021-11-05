@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push: # run on push to master
+    branches: [ master ]
+  pull_request: # run on PR against master
+    branches: [ master ]
+  workflow_dispatch: # run on button-press in Actions tab
+
+concurrency: # only allow the most recent workflow to execute
+  group: 'XtalsPyTools'
+  cancel-in-progress: true
+
+env: # environment variables
+  julia_version: '1.6.3' # julia version to use on all runners
+
+jobs: # run in parallel within workflow
+
+
+  unit-tests: # run unit tests on full build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: ${{env.julia_version}}
+      - name: setup # install package and all dependencies
+        run: |
+          julia --project quick_setup.jl
+      - uses: julia-actions/runtest@latest
