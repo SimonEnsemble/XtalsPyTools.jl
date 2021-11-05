@@ -27,4 +27,4 @@ jobs: # run in parallel within workflow
       - name: setup # install package and all dependencies
         run: |
           julia --project quick_setup.jl
-      - uses: julia-actions/runtest@latest
+      - uses: julia-actions/julia-runtest@latest
