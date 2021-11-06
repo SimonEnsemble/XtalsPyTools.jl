@@ -1,5 +1,7 @@
 # `XtalsPyTools.jl`
 
+[![Build](https://github.com/SimonEnsemble/XtalsPyTools.jl/actions/workflows/ci_testing.yml/badge.svg)](https://github.com/SimonEnsemble/XtalsPyTools.jl/actions/workflows/ci_testing.yml)
+
 A repository of Python-dependent tools for working with [`Xtals.jl`](https://github.com/SimonEnsemble/Xtals.jl)
 
 `Xtals` is a pure-Julia package for reading/writing/editing crystal structures.
