@@ -33,7 +33,9 @@ jobs: # run in parallel within workflow
         uses: julia-actions/julia-buildpkg@latest
       
       - name: install dependencies
-        run: julia --project -e 'import Pkg; Pkg.add.(["Coverage"])'
+        run: |
+          julia --project ./quick_setup.jl
+          julia --project -e 'import Pkg; Pkg.add.(["Coverage"])'
       
       - name: run tests
         run: julia --project --code-coverage -e 'import Pkg; Pkg.test(coverage=true)'
