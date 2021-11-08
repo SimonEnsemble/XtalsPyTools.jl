@@ -17,14 +17,36 @@ env: # environment variables
 jobs: # run in parallel within workflow
 
 
-  unit-tests: # run unit tests on full build
+  unit-and-doc-tests:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v2
-      - uses: julia-actions/setup-julia@latest
+      - name: checkout commit
+        uses: actions/checkout@master
+
+      - name: set up Julia
+        uses: julia-actions/setup-julia@latest
         with:
           version: ${{env.julia_version}}
-      - name: setup # install package and all dependencies
+      
+      - name: build package
+        uses: julia-actions/julia-buildpkg@latest
+      
+      - name: install dependencies
         run: |
-          julia --project quick_setup.jl
-      - uses: julia-actions/julia-runtest@latest
+          julia --project ./quick_setup.jl
+          julia --project -e 'import Pkg; Pkg.add.(["Coverage"])'
+      
+      - name: run tests
+        run: julia --project --code-coverage -e 'import Pkg; Pkg.test(coverage=true)'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
+      
+      - name: process test coverage
+        uses: julia-actions/julia-processcoverage@v1
+      
+      - name: upload coverage report
+        uses: codecov/codecov-action@v2
+        with:
+          verbose: true
