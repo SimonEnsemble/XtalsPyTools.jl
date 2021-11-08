@@ -15,21 +15,13 @@ function check_add_dep(pkg; channel="")
 end
 
 
-# check for a working Python environment; if none, install one
-try
-    @info "Checking PyCall."
-    using PyCall
-    pyimport("sys")
-    @info "Python environment verified."
-catch
-    @info "Setting up Python environment..."
-    ENV["PYTHON"]=""
-    Pkg.add("PyCall")
-    Pkg.build("PyCall")
-    using PyCall
-    pyimport("sys")
-    @info "PyCall verified."
-end
+@info "Setting up Python environment..."
+ENV["PYTHON"]=""
+Pkg.add("PyCall")
+Pkg.build("PyCall")
+using PyCall
+pyimport("sys")
+@info "PyCall verified."
 
 # check for Conda; if not found, install it
 try
