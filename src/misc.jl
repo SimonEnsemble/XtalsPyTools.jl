@@ -1,3 +1,3 @@
 function banner()
-    FIGlet.render("XtalsPyTools", FIGlet.availablefonts()[27])
+    FIGlet.render("XtalsPyTools", FIGlet.availablefonts()[286])
 end
