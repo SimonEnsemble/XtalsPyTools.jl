@@ -12,7 +12,7 @@ concurrency: # only allow the most recent workflow to execute
   cancel-in-progress: true
 
 env: # environment variables
-  julia_version: '1.6.3' # julia version to use on all runners
+  julia_version: '1.7.0' # julia version to use on all runners
 
 jobs: # run in parallel within workflow
 
