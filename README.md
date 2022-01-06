@@ -9,7 +9,7 @@ A repository of Python-dependent tools for working with [`Xtals.jl`](https://git
 `Xtals` is a pure-Julia package for reading/writing/editing crystal structures.
 Some higher-level features were previously dependent on Python packages; those have been moved here.
 
-To obtain the package, simply add it via the REPL package manager:
+To obtain the package, simply add it via the REPL package manager (minimum Julia version 1.1):
 
 `pkg> add XtalsPyTools`
 
