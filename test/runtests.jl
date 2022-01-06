@@ -4,7 +4,7 @@ testfiles = [
     "primitive_cell.jl"]
 
 @assert VERSION.major == 1
-@assert VERSION.minor ≥ 1
+@assert VERSION.minor ≥ 4
 
 using XtalsPyTools, Test
 XtalsPyTools.banner()
