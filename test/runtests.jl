@@ -3,8 +3,10 @@ testfiles = [
     "infer_geometry_based_bonds!.jl", 
     "primitive_cell.jl"]
 
-using XtalsPyTools, Test
+@assert VERSION.major == 1
+@assert VERSION.minor ≥ 4
 
+using XtalsPyTools, Test
 XtalsPyTools.banner()
 
 for testfile ∈ testfiles
