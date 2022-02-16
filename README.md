@@ -2,7 +2,7 @@
 
 | **Build Status** | **Test Coverage** |
 |:---:|:---:|
-| [![Build](https://github.com/SimonEnsemble/XtalsPyTools.jl/actions/workflows/ci_testing.yml/badge.svg)](https://github.com/SimonEnsemble/XtalsPyTools.jl/actions/workflows/ci_testing.yml) | [![codecov](https://codecov.io/gh/SimonEnsemble/XtalsPyTools.jl/branch/master/graph/badge.svg?token=JD0C2Y99H1)](https://codecov.io/gh/SimonEnsemble/XtalsPyTools.jl) |
+| [![Build](https://github.com/SimonEnsemble/XtalsPyTools.jl/actions/workflows/ci_testing.yml/badge.svg)](https://github.com/SimonEnsemble/XtalsPyTools.jl/actions/workflows/ci_testing.yml) | [![codecov](https://codecov.io/gh/SimonEnsemble/XtalsPyTools.jl/branch/master/graph/badge.svg?token=JD0C2Y99H1)](https://codecov.io/gh/SimonEnsemble/XtalsPyTools.jl) [![Aqua QA](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl) |
 
 A repository of Python-dependent tools for working with [`Xtals.jl`](https://github.com/SimonEnsemble/Xtals.jl)
 
