@@ -1,6 +1,7 @@
 module XtalsPyTools
 
 using Xtals, PyCall, FIGlet, Printf, Graphs, UUIDs
+using PrecompileSignatures: @precompile_signatures
 
 # - lists python dependencies
 # - checks for python dependencies at pre-compile, warns on failure
@@ -21,5 +22,7 @@ function __init__()
 end
 
 export infer_geometry_based_bonds!, primitive_cell, rc
+
+@precompile_signatures(XtalsPyTools)
 
 end
