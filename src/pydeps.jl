@@ -1,20 +1,14 @@
 # Python dependencies.
 # Pairs are rc_key => library
-PYDEPS = Dict(
-    :scipy => "scipy.spatial",
-    :pymatgen => "pymatgen.io.cif"
-)
+PYDEPS = Dict(:scipy => "scipy.spatial", :pymatgen => "pymatgen.io.cif")
 
 # Attempts to load a python dependency.
 # Calling functions which require these dependencies without successfully loading them will throw exceptions.
-function load_pydep(pydep::String)
-    try
+load_pydep(pydep::String) = try
         return pyimport(pydep)
     catch
         return nothing
     end
-end
-
 
 # Checks for ability to load a python dependency.
 function check_pydep(pydep::Pair)
@@ -24,10 +18,7 @@ function check_pydep(pydep::Pair)
     end
 end
 
-
 # Called at module initialization to spin up deps
-function init_pydeps()
-    for pydep ∈ PYDEPS
+init_pydeps() = for pydep in PYDEPS
         rc[pydep[1]] = load_pydep(pydep[2])
     end
-end

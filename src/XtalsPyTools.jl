@@ -16,7 +16,7 @@ function __init__()
     # load Python dependencies
     init_pydeps()
     # check Python dependencies
-    for pydep ∈ PYDEPS
+    for pydep in PYDEPS
         check_pydep(pydep)
     end
 end
