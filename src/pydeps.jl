@@ -4,7 +4,8 @@ PYDEPS = Dict(:scipy => "scipy.spatial", :pymatgen => "pymatgen.io.cif")
 
 # Attempts to load a python dependency.
 # Calling functions which require these dependencies without successfully loading them will throw exceptions.
-load_pydep(pydep::String) = try
+load_pydep(pydep::String) =
+    try
         return pyimport(pydep)
     catch
         return nothing
@@ -19,6 +20,7 @@ function check_pydep(pydep::Pair)
 end
 
 # Called at module initialization to spin up deps
-init_pydeps() = for pydep in PYDEPS
+init_pydeps() =
+    for pydep in PYDEPS
         rc[pydep[1]] = load_pydep(pydep[2])
     end
