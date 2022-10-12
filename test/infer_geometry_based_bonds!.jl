@@ -12,7 +12,6 @@ function visual_check(xtal::String)
     @info c.name * " see .vtk and .xyz to visually check bonds"
 end
 
-
 if !isdir("temp")
     mkdir("temp")
 end
@@ -29,11 +28,13 @@ end
     c = Crystal("NiPyC2_relax.cif")
     strip_numbers_from_atom_labels!(c)
     c = replicate(c, (4, 4, 4))
-    bonding_rules = [BondingRule(:H, :*, 1.2),
-                     BondingRule(:Ni, :O, 2.5),
-                     BondingRule(:Ni, :N, 2.5),
-                     BondingRule(:*, :*, 1.9)]
-    infer_bonds!(c, true, bonding_rules=bonding_rules)
+    bonding_rules = [
+        BondingRule(:H, :*, 1.2),
+        BondingRule(:Ni, :O, 2.5),
+        BondingRule(:Ni, :N, 2.5),
+        BondingRule(:*, :*, 1.9)
+    ]
+    infer_bonds!(c, true; bonding_rules=bonding_rules)
     c1 = deepcopy(c)
     conn_comps = connected_components(c.bonds)
 
@@ -75,7 +76,7 @@ end
 
     @test ne(c.bonds) == 0
 
-    infer_geometry_based_bonds!(c, true, covalent_radii=covalent_radii)
+    infer_geometry_based_bonds!(c, true; covalent_radii=covalent_radii)
 
     @test c.atoms.species[neighbors(c.bonds, 1)] == [:O, :O, :O, :O]
 end
