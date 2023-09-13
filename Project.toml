@@ -1,7 +1,7 @@
 name = "XtalsPyTools"
 uuid = "eeb819d4-c189-4e83-a288-887db76b1875"
 authors = ["SimonEnsemble <cory.simon@oregonstate.edu>"]
-version = "0.0.3"
+version = "0.0.4"
 
 [deps]
 Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
@@ -16,11 +16,11 @@ Xtals = "ede5f01d-793e-4c47-9885-c447d1f18d6d"
 [compat]
 Aqua = "~0.5.0"
 FIGlet = "~0.2.0"
-Graphs = "1.4.0"
-PrecompileSignatures = "3.0"
-PyCall = "1.92.0"
-Xtals = "~0.3.0, ~0.4.0"
-julia = "1.5"
+Graphs = "^1.4.0"
+PrecompileSignatures = "^3.0.0"
+PyCall = "^1.92.0"
+Xtals = "~0.3.0, ~0.4.0, ~0.5.0"
+julia = "^1.5.0"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
